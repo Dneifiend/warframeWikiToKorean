@@ -21,20 +21,26 @@ getData().then(e => {
 
 async function wikiTrans() {
     var data = WARFRAME_KO_DATA || await getData()
-    document.querySelectorAll('h1, span, p, dt').forEach(ele => {
-        if (data[ele.textContent.trim().toUpperCase()]) {
-            var en = ele.textContent.trim()
-            var kr = data[ele.textContent.trim().toUpperCase()]
-            ele.textContent = ele.textContent.replace(en, kr)
+    document.querySelectorAll('h1, span, p, dt, a, figcaption').forEach(ele => {
+        if (ele.childElementCount === 0) {
+
+            if (data[ele.textContent.trim().toUpperCase()]) {
+                var en = ele.textContent.trim()
+                var kr = data[ele.textContent.trim().toUpperCase()]
+                ele.textContent = ele.textContent.replace(en, kr)
+            }
         }
+
     })
-    document.querySelectorAll('a').forEach(ele => {
-        if (data[ele.textContent.trim().toUpperCase()]) {
-            var en = ele.textContent.trim()
-            var kr = data[ele.textContent.trim().toUpperCase()]
-            ele.textContent = ele.textContent.replace(en, kr)
-        }
-    })
+    // document.querySelectorAll('a').forEach(ele => {
+    //     if (ele.childElementCount === 0) {
+    //         if (data[ele.textContent.trim().toUpperCase()]) {
+    //             var en = ele.textContent.trim()
+    //             var kr = data[ele.textContent.trim().toUpperCase()]
+    //             ele.textContent = ele.textContent.replace(en, kr)
+    //         }
+    //     }
+    // })
 }
 
 async function searchEng(en) {
@@ -72,9 +78,11 @@ async function searchChanger() {
     dataList.id = "koLang"
 
     Object.values(data).forEach((ko, koIdx) => {
-        var opt = document.createElement('option')
-        opt.value = ko
-        dataList.append(opt)
+        if (ko.length <= 15) {
+            var opt = document.createElement('option')
+            opt.value = ko
+            dataList.append(opt)
+        }
     })
     document.body.append(dataList)
     if (searchInputHtml) {
