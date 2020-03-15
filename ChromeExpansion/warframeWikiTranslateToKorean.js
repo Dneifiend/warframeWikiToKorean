@@ -21,7 +21,14 @@ getData().then(e => {
 
 async function wikiTrans() {
     var data = WARFRAME_KO_DATA || await getData()
-    document.querySelectorAll('h1, span, a, p, dt').forEach(ele => {
+    document.querySelectorAll('h1, span, p, dt').forEach(ele => {
+        if (data[ele.textContent.trim().toUpperCase()]) {
+            var en = ele.textContent.trim()
+            var kr = data[ele.textContent.trim().toUpperCase()]
+            ele.textContent = ele.textContent.replace(en, kr)
+        }
+    })
+    document.querySelectorAll('a').forEach(ele => {
         if (data[ele.textContent.trim().toUpperCase()]) {
             var en = ele.textContent.trim()
             var kr = data[ele.textContent.trim().toUpperCase()]
