@@ -1,0 +1,38 @@
+var url = 'http://origin.warframe.com/origin/5E69C1D0/PublicExport/Manifest/ExportCustoms_ko.json!00_ioeo9OuEjQux+S4nBLWKKQ'
+
+
+httpRequest = new XMLHttpRequest();
+
+httpRequest.open('GET', url);
+httpRequest.send();
+
+
+if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+        alert(httpRequest.responseText);
+    } else {
+        alert('request에 뭔가 문제가 있어요.');
+    }
+}
+
+
+1) --------- apk 추출
+데이터 가져오기
+app_appdata
+
+2) 오리진 해시만 알면 됨
+5E69C1D0
+
+104.75.20.137
+
+/origin/5E69C1D0/PublicExport/index_ko.txt.lzma
+
+http://origin.warframe.com/origin/5E69C1D0/PublicExport/index_ko.txt.lzma
+http://origin.warframe.com/origin/5E69C1D0/PublicExport/index_en.txt.lzma
+
+
+
+http://origin.warframe.com/origin/5E69C1D0/PublicExport/Manifest/ExportCustoms_ko.json!00_ioeo9OuEjQux+S4nBLWKKQ
+
+
+/PublicExport/Manifest/ExportCustoms_ko.json!00_ioeo9OuEjQux+S4nBLWKKQ

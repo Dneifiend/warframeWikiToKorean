@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name": "워프레임 위키 전환",
+    "description": "영문 워프레임 위키를 한글로 전환합니다.\n공식앱 및 WFCD 커뮤니티 데이터를 사용합니다.",
+    "version": "1.0.0",
+    "icons": {
+        "128": "ico.png",
+        "48": "ico.png",
+        "16": "ico.png"
+    },
+    "browser_action": {
+        "default_icon": "ico.png",
+        "default_popup": "popup.html"
+    },
+    "web_accessible_resources": [
+        "*.png",
+        "*.jpg",
+        "*.ico"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://warframe.fandom.com/*",
+                "http://warframe.fandom.com/*"
+            ],
+            "js": [
+                "warframeWikiTranslateToKorean.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "https://warframe.fandom.com/*",
+        "http://warframe.fandom.com/*"
+    ]
+}
