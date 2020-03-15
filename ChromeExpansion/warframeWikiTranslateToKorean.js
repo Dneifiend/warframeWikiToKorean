@@ -3,7 +3,7 @@ var WARFRAME_KO_DATA;
 function getData() {
     return new Promise((res, rej) => {
         var httpReq = new XMLHttpRequest();
-        httpReq.open("GET", 'https://gist.githubusercontent.com/Dneifiend/7ac3a86b829c08bc2e3b5757349e7b6b/raw/d4ad3accfb105d47e567248c9d6b1f0b16337a4a/warframeKO.json');
+        httpReq.open("GET", 'https://raw.githubusercontent.com/Dneifiend/warframeWikiToKorean/master/export/warframeKO.json');
         httpReq.send();
         httpReq.addEventListener('loadend', (response) => {
             var data = JSON.parse(response.target.response);
