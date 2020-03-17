@@ -20,6 +20,7 @@ var WFCDdata = {
 function getHTML(url) {
   return new Promise((resolve, rej) => {
     https.get(url, (res) => {
+      res.setEncoding('utf8')
       var str = ''
       res.on('data', (d) => {
         str += d
@@ -117,12 +118,6 @@ var getData = new Promise((res, rej) => {
 Promise.all([WFCDpromise(), getData]).then(e => {
   var _obj = {}
   Object.assign(_obj, e[0], e[1])
-  var a1 = Object.values(_obj)
-  var r = a1.find(e => {
-    return e["enName"] == "FIELDRON SAMPLE"
-  })
-  // FIXME �저장할 때 �가 생김
-  console.log(r)
   fs.writeFile('export/totalData.json', JSON.stringify(_obj), 'utf8', () => {
     console.log(path.resolve() + '\\export\\totalData.json');
     console.log('done.');

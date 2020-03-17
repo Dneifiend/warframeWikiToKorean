@@ -48,6 +48,7 @@ var getData = function (url) {
     return new Promise((resolve, rej) => {
         var streamData = '';
         http.get(url, (res) => {
+            res.setEncoding('utf8')
             res.on('data', data => {
                 streamData += data;
             });
@@ -77,8 +78,8 @@ function appDataParser() {
     var progress = 0;
     try {
 
-        Object.keys(target.table).forEach((lang, langIdx) => {
-            Object.keys(target.table[lang]).forEach((tableName, tableIdx) => {
+        Object.keys(target.table).forEach((lang) => {
+            Object.keys(target.table[lang]).forEach((tableName) => {
                 var url = 'http://origin.warframe.com/origin/5E69C1D0/PublicExport/Manifest/' + target.table[lang][tableName];
 
                 function pr() {
@@ -86,7 +87,7 @@ function appDataParser() {
 
                         getData(url)
                             .then(json => {
-                                json[tableName].forEach((data, idx) => {
+                                json[tableName].forEach((data) => {
                                     if (!lastData[data.uniqueName]) {
                                         lastData[data.uniqueName] = {};
                                     }
