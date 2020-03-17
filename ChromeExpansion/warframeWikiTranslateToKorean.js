@@ -56,11 +56,10 @@ async function searchKor(searchKo) {
         return eng
     }
 }
-async function getInputEng() {
+async function getInputEng(txt) {
     var searchInputHtml = document.querySelector('input[name=query]')
     if (searchInputHtml) {
-
-        var c = await searchKor(searchInputHtml.value.trim())
+        var c = await searchKor(txt.trim())
         return c
     }
 }
@@ -88,13 +87,21 @@ async function searchChanger() {
     if (searchInputHtml) {
 
         searchInputHtml.setAttribute('list', "koLang")
+        var _txt = ''
         searchInputHtml.addEventListener('keydown', e => {
+            if (e.key !== "Enter") {
+                _txt = searchInputHtml.value
+            }
             if (e.ctrlKey && e.key === "Enter") {
-                getInputEng().then(e => {
-                    searchInputHtml.value = e.toLowerCase().replace(/\b(.)/g, (e => {
-                        return e.toUpperCase()
-                    }))
-                })
+                searchInputHtml.value = _txt
+                console.log(_txt)
+                getInputEng(_txt).then(e => {
+                    if (e) {
+                        searchInputHtml.value = e.toLowerCase().replace(/\b(.)/g, (e => {
+                            return e.toUpperCase()
+                        }))
+                    }
+                }).catch('검색 값이 없음')
             }
         })
     }
