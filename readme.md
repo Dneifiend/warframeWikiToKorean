@@ -1,7 +1,7 @@
 # 워프레임 위키 한국어 변환기
 
 ## INFO
-워프레임 위키(https://warframe.fandom.com/wiki/Limbo)를 한국어로 전환하는 확장프로그램 코드입니다.
+워프레임 위키(https://warframe.fandom.com/wiki/) 를 한국어로 전환하는 확장프로그램 코드입니다.
 
 
 ## 실행순서
