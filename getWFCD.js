@@ -45,39 +45,39 @@ function getWFCD() {
       var promiseEle = () => {
         return new Promise(res => {
           Promise.all([getHTML(url), getHTML(url.replace(/\/ko\//g, "/"))]).then(e => {
-              var jsonKo = JSON.parse(e[0])
-              var jsonEn = JSON.parse(e[1])
+            var jsonKo = JSON.parse(e[0])
+            var jsonEn = JSON.parse(e[1])
 
 
-              var assignData = Object.keys(jsonKo).reduce((p, c, i) => {
-                var valKey;
+            var assignData = Object.keys(jsonKo).reduce((p, c, i) => {
+              var valKey;
 
-                if (type === "type1" || type === "type3") {
-                  valKey = "name"
-                }
-                if (type === "type2") {
-                  valKey = "value"
-                }
-                if (type === "type1" || type === "type2") {
-                  if (p[c] === undefined) {
-                    p[c] = {
-                      "koName": jsonKo[c][valKey],
-                      "enName": jsonEn[c][valKey].toUpperCase(),
-                    }
+              if (type === "type1" || type === "type3") {
+                valKey = "name"
+              }
+              if (type === "type2") {
+                valKey = "value"
+              }
+              if (type === "type1" || type === "type2") {
+                if (p[c] === undefined) {
+                  p[c] = {
+                    "koName": jsonKo[c][valKey],
+                    "enName": jsonEn[c][valKey].toUpperCase(),
                   }
                 }
-                if (type === "type3") {
-                  if (p[jsonEn[c]["name"]] === undefined) {
-                    p[jsonEn[c]["name"]] = {
-                      "koName": jsonKo[c][valKey],
-                      "enName": jsonEn[c][valKey].toUpperCase(),
-                    }
+              }
+              if (type === "type3") {
+                if (p[jsonEn[c]["name"]] === undefined) {
+                  p[jsonEn[c]["name"]] = {
+                    "koName": jsonKo[c][valKey],
+                    "enName": jsonEn[c][valKey].toUpperCase(),
                   }
                 }
-                return p
-              }, {})
-              res(assignData)
-            })
+              }
+              return p
+            }, {})
+            res(assignData)
+          })
             .catch(err => {
               throw err
             })

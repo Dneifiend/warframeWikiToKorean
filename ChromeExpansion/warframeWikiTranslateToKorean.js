@@ -32,15 +32,6 @@ async function wikiTrans() {
         }
 
     })
-    // document.querySelectorAll('a').forEach(ele => {
-    //     if (ele.childElementCount === 0) {
-    //         if (data[ele.textContent.trim().toUpperCase()]) {
-    //             var en = ele.textContent.trim()
-    //             var kr = data[ele.textContent.trim().toUpperCase()]
-    //             ele.textContent = ele.textContent.replace(en, kr)
-    //         }
-    //     }
-    // })
 }
 
 async function searchEng(en) {
