@@ -18,6 +18,7 @@ var WFCDdata = {
 }
 
 function getHTML(url) {
+  console.log('run - getHTML')
   return new Promise((resolve, rej) => {
     https.get(url, (res) => {
       res.setEncoding('utf8')
@@ -39,7 +40,7 @@ function getHTML(url) {
 var promiseAll = []
 
 function getWFCD() {
-
+  console.log('run - getWFCD')
   Object.keys(WFCDdata).forEach(type => {
     WFCDdata[type].forEach(url => {
       var promiseEle = () => {
@@ -90,6 +91,7 @@ function getWFCD() {
 getWFCD()
 
 function WFCDpromise() {
+  console.log('run - WFCDpromise')
   return new Promise(res => {
     Promise.all(promiseAll).then(e => {
       e.forEach(e => {
