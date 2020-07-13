@@ -21,7 +21,7 @@ getData().then(e => {
 
 async function wikiTrans() {
     var data = WARFRAME_KO_DATA || await getData()
-    document.querySelectorAll('h1, span, p, dt, a, figcaption').forEach(ele => {
+    document.querySelectorAll('h1, span, p, dt, a, figcaption, font').forEach(ele => {
         if (ele.childElementCount === 0) {
 
             if (data[ele.textContent.trim().toUpperCase()]) {
@@ -59,9 +59,40 @@ async function getInputEng(txt) {
 async function searchChanger() {
     var data = WARFRAME_KO_DATA || await getData()
 
+    console.log('s')
+    //한글검색 체크박스
+    checkbox = document.querySelector('#koSearchCheck');
+    if (!checkbox) {
+        var _label = document.createElement('label')
+        var _check = document.createElement('input')
+        _label.style.marginRight = "10px"
+        _check.type = "checkbox"
+        _check.id = "koSearchCheck"
+        _check.setAttribute('checked', "")
+        _label.textContent = "한글검색";
+        _label.prepend(_check)
+        document.querySelector('.wds-global-navigation__search')?.prepend(_label)
+        _check.addEventListener('click', (evt) => {
+            var checkBox = evt.target;
+            var checked = checkBox.checked;
+            if (checked) {
+                document.querySelector('.wds-global-navigation__search-input').setAttribute('list', 'koLang')
+                document.querySelector('.wds-global-navigation__search-input').placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
+            }
+            if (!checked) {
+                document.querySelector('.wds-global-navigation__search-input').removeAttribute('list')
+                document.querySelector('.wds-global-navigation__search-input').placeholder = "한글검색 체크 시 한글검색 가능"
+            }
+        })
+    }
+
+
+
+
+
     var searchInputHtml = document.querySelector('input[name=query]')
     if (searchInputHtml) {
-        searchInputHtml.placeholder = "한글 입력 후 Crtl + Enter 입력 시 영문으로 전환됩니다."
+        searchInputHtml.placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
     }
 
     var dataList = document.createElement('datalist')
@@ -79,24 +110,30 @@ async function searchChanger() {
 
         searchInputHtml.setAttribute('list', "koLang")
         var _txt = ''
-        searchInputHtml.addEventListener('keydown', e => {
-            if (e.key !== "Enter") {
-                _txt = searchInputHtml.value
-            }
-            if (e.ctrlKey && e.key === "Enter") {
-                searchInputHtml.value = _txt
-                console.log(_txt)
-                getInputEng(_txt).then(e => {
-                    if (e) {
-                        searchInputHtml.value = e.toLowerCase().replace(/\b(.)/g, (e => {
-                            return e.toUpperCase()
-                        }))
-                    }
-                }).catch('검색 값이 없음')
+        searchInputHtml.addEventListener('keyup', e => {
+            checkbox = document.querySelector('#koSearchCheck');
+            if (checkbox.checked) {
+                if (e.key !== "Enter") {
+                    _txt = searchInputHtml.value
+                }
+                if (e.key === "Enter") {
+                    // if (e.ctrlKey && e.key === "Enter") {
+                    searchInputHtml.value = _txt
+                    console.log(_txt)
+                    getInputEng(_txt).then(e => {
+
+                        if (e) {
+                            var _q = e.toLowerCase().replace(/\b(.)/g, (e => {
+                                return e.toUpperCase()
+                            }))
+                            searchInputHtml.value = _q;
+                            window.location = 'https://warframe.fandom.com/wiki/Special:Search?query=' + _q;
+                        };
+                    }).catch('검색 값이 없음')
+                }
             }
         })
     }
-
 }
 
 
