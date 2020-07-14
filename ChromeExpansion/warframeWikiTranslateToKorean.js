@@ -59,22 +59,27 @@ async function getInputEng(txt) {
 async function searchChanger() {
     var data = WARFRAME_KO_DATA || await getData()
 
-    console.log('s')
     //한글검색 체크박스
     checkbox = document.querySelector('#koSearchCheck');
     if (!checkbox) {
+        var _cookie = document.cookie.split(";").map(e => { return e.split('=') }).filter(e => e[0].trim() == "koCheck")
         var _label = document.createElement('label')
         var _check = document.createElement('input')
         _label.style.marginRight = "10px"
         _check.type = "checkbox"
         _check.id = "koSearchCheck"
-        _check.setAttribute('checked', "")
+
+        if (_cookie.length && _cookie[0]?.[1] == "true") {
+            _check.setAttribute('checked', "")
+        }
         _label.textContent = "한글검색";
         _label.prepend(_check)
         document.querySelector('.wds-global-navigation__search')?.prepend(_label)
         _check.addEventListener('click', (evt) => {
-            var checkBox = evt.target;
-            var checked = checkBox.checked;
+            var _checkBox = evt.target;
+            var checked = evt.target.checked
+            document.cookie = "koCheck=" + (evt.target.checked ? "true" : "false")
+
             if (checked) {
                 document.querySelector('.wds-global-navigation__search-input').setAttribute('list', 'koLang')
                 document.querySelector('.wds-global-navigation__search-input').placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
