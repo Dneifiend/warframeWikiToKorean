@@ -96,9 +96,7 @@ async function searchChanger() {
 
 
     var searchInputHtml = document.querySelector('input[name=query]')
-    if (searchInputHtml) {
-        searchInputHtml.placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
-    }
+
 
     var dataList = document.createElement('datalist')
     dataList.id = "koLang"
@@ -113,7 +111,10 @@ async function searchChanger() {
     document.body.append(dataList)
     if (searchInputHtml) {
 
-        searchInputHtml.setAttribute('list', "koLang")
+        if (document.querySelector('#koSearchCheck')?.checked) {
+            searchInputHtml.setAttribute('list', "koLang")
+            searchInputHtml.placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
+        }
         var _txt = ''
         searchInputHtml.addEventListener('keyup', e => {
             checkbox = document.querySelector('#koSearchCheck');
