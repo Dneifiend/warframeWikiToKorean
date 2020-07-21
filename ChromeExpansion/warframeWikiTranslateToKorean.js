@@ -116,27 +116,18 @@ async function searchChanger() {
             searchInputHtml.placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
         }
         var _txt = ''
-        searchInputHtml.addEventListener('keyup', e => {
+        searchInputHtml.addEventListener('change', e => {
             checkbox = document.querySelector('#koSearchCheck');
             if (checkbox.checked) {
-                if (e.key !== "Enter") {
-                    _txt = searchInputHtml.value
-                }
-                if (e.key === "Enter") {
-                    // if (e.ctrlKey && e.key === "Enter") {
-                    searchInputHtml.value = _txt
-                    console.log(_txt)
-                    getInputEng(_txt).then(e => {
-
-                        if (e) {
-                            var _q = e.toLowerCase().replace(/\b(.)/g, (e => {
-                                return e.toUpperCase()
-                            }))
-                            searchInputHtml.value = _q;
-                            window.location = 'https://warframe.fandom.com/wiki/Special:Search?query=' + _q;
-                        };
-                    }).catch('검색 값이 없음')
-                }
+                getInputEng(searchInputHtml.value).then(e => {
+                    if (e) {
+                        var _q = e.toLowerCase().replace(/\b(.)/g, (e => {
+                            return e.toUpperCase()
+                        }))
+                        searchInputHtml.value = _q;
+                        window.location = 'https://warframe.fandom.com/wiki/Special:Search?query=' + _q;
+                    };
+                }).catch('검색 값이 없음')
             }
         })
     }
