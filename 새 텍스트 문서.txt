@@ -21,14 +21,14 @@ if (httpRequest.readyState === XMLHttpRequest.DONE) {
 app_appdata
 
 2) 오리진 해시만 알면 됨
-5F07CCCC
+5F471274
 
 wireshark index_ko.txt.lzma 검색
 
 /origin/5E69C1D0/PublicExport/index_ko.txt.lzma
 
-http://origin.warframe.com/origin/5F07CCCC/PublicExport/index_ko.txt.lzma
-http://origin.warframe.com/origin/5F07CCCC/PublicExport/index_en.txt.lzma
+http://origin.warframe.com/origin/5F471274/PublicExport/index_ko.txt.lzma
+http://origin.warframe.com/origin/5F471274/PublicExport/index_en.txt.lzma
 
 
 
