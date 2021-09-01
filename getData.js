@@ -7,38 +7,38 @@ var target = {
     lang: "ko",
     table: {
         ko: {
-            ExportCustoms: "ExportCustoms_ko.json!00_ZuyNCk8v6Kcwpw1adp686w",
-            ExportDrones: "ExportDrones_ko.json!00_fM7HUC6a3-8FEGmQhkZWYA",
-            ExportFlavour: "ExportFlavour_ko.json!00_jyAuGbdv+SPSdqcW78t1lQ",
-            ExportFusionBundles: "ExportFusionBundles_ko.json!00_HzoZYxZz33XYe-1K5QwI3g",
-            ExportGear: "ExportGear_ko.json!00_nPG9ANFOpkx1MbNXDerytQ",
-            ExportKeys: "ExportKeys_ko.json!00_3QZ2pwMyjdMuqXa75nCljw",
-            ExportRecipes: "ExportRecipes_ko.json!00_fMN7QB4TcmmcJu8r2uQ62A",
-            ExportRegions: "ExportRegions_ko.json!00_DLFJNOIOPYYLawKFMmq0-w",
-            ExportRelicArcane: "ExportRelicArcane_ko.json!00_X0eFmy7gP8ms+8ZG6f-QVw",
-            ExportResources: "ExportResources_ko.json!00_CSDGeyfSNjclqcC2-kXKuw",
-            ExportSentinels: "ExportSentinels_ko.json!00_ggBi623sfMQ+B-5HgXRHJA",
-            ExportSortieRewards: "ExportSortieRewards_ko.json!00_Mj4yXNvhmP-+SlkKI+slSQ",
-            ExportUpgrades: "ExportUpgrades_ko.json!00_cVMqg1mHL-P8BQgGiNfHjA",
-            ExportWarframes: "ExportWarframes_ko.json!00_+tjuSPjxNpAYrh8RpP+Lgw",
-            ExportWeapons: "ExportWeapons_ko.json!00_B3nkHFGlfuF0F-sOcJ+VsA"
+            ExportCustoms: "ExportCustoms_ko.json!00_mvvC8CJx5MyTHm1veKVwog",
+            ExportDrones: "ExportDrones_ko.json!00_lod6Op8+PlDxW-NtrdPWqA",
+            ExportFlavour: "ExportFlavour_ko.json!00_hrWFac1msXgPUXncbd1ylQ",
+            ExportFusionBundles: "ExportFusionBundles_ko.json!00_iIi5Jr7nvTJiQoi-TzcdQw",
+            ExportGear: "ExportGear_ko.json!00_FcKSnQ053WjrR4tadmHFIw",
+            ExportKeys: "ExportKeys_ko.json!00_rbklrDf92rbQRPYr-ikgsw",
+            ExportRecipes: "ExportRecipes_ko.json!00_8ys2mt1cRPTRtkqDfZUINQ",
+            ExportRegions: "ExportRegions_ko.json!00_dhP3gNKS7gYu34E-yeI6LA",
+            ExportRelicArcane: "ExportRelicArcane_ko.json!00_MFuvsXAwZq4BXu32F1KwZw",
+            ExportResources: "ExportResources_ko.json!00_l9fEz83052ZUFdKBn3SF+g",
+            ExportSentinels: "ExportSentinels_ko.json!00_lHL60vueEMXf16GllpN6gA",
+            ExportSortieRewards: "ExportSortieRewards_ko.json!00_ek-jiEc9Y7UzSMfn8Le7xA",
+            ExportUpgrades: "ExportUpgrades_ko.json!00_lcz9oHA8+mLBhwGP3Pj9bw",
+            ExportWarframes: "ExportWarframes_ko.json!00_A4US8Y8W6ygzlbxqBCwDgg",
+            ExportWeapons: "ExportWeapons_ko.json!00_UlDhqGJLWQro3fLmjFrx0A"
         },
         en: {
-            ExportCustoms: "ExportCustoms_en.json!00_MVhVtykMjeIO0DkISh7AEw",
-            ExportDrones: "ExportDrones_en.json!00_srFDy7+TuctM9+z6159P3Q",
-            ExportFlavour: "ExportFlavour_en.json!00_hkHsepUzrqUCikkCFg9PLw",
-            ExportFusionBundles: "ExportFusionBundles_en.json!00_CxaHllVSdyInQMyCwcK5tQ",
-            ExportGear: "ExportGear_en.json!00_f1uuZmDSkEJ3G5Y4tpPJQQ",
-            ExportKeys: "ExportKeys_en.json!00_eN04hvh1WtCIZ8jQq0eMEQ",
-            ExportRecipes: "ExportRecipes_en.json!00_fMN7QB4TcmmcJu8r2uQ62A",
-            ExportRegions: "ExportRegions_en.json!00_-AK90Y+6t61nslAkC0jtNQ",
-            ExportRelicArcane: "ExportRelicArcane_en.json!00_1ymcG0VLDU-ex8bBWr+rzw",
-            ExportResources: "ExportResources_en.json!00_a+oy0G1ISeEMVY43yfBvNQ",
-            ExportSentinels: "ExportSentinels_en.json!00_M2lnkRtELtIW+xx069K5Fw",
-            ExportSortieRewards: "ExportSortieRewards_en.json!00_QlxPwHD79jaqoY-wqFntvQ",
-            ExportUpgrades: "ExportUpgrades_en.json!00_cwkm6s1e5Dq1BMM4ecdvvQ",
-            ExportWarframes: "ExportWarframes_en.json!00_FmMkE1yYmrswN7Ll8+pFEw",
-            ExportWeapons: "ExportWeapons_en.json!00_2swGhpBuzT4yEdOwMXhpsg"
+            ExportCustoms: "ExportCustoms_en.json!00_qT1-bMg9GUG6GHHdTOAmkw",
+            ExportDrones: "ExportDrones_en.json!00_g0Sft3UN7r-XufewwdLJGA",
+            ExportFlavour: "ExportFlavour_en.json!00_IBGFa+-YMAeScbKPxirjTw",
+            ExportFusionBundles: "ExportFusionBundles_en.json!00_BVjM2wq12FQQ1a6LNy5Ttw",
+            ExportGear: "ExportGear_en.json!00_0CeCkcDGL6d-JwKbcwaO7A",
+            ExportKeys: "ExportKeys_en.json!00_l-TVxYt7zmO4-y8Gimncog",
+            ExportRecipes: "ExportRecipes_en.json!00_8ys2mt1cRPTRtkqDfZUINQ",
+            ExportRegions: "ExportRegions_en.json!00_hEp9rPFtWjJQardK81J90w",
+            ExportRelicArcane: "ExportRelicArcane_en.json!00_1x2zbbAGQoBu2SKR5YmV9w",
+            ExportResources: "ExportResources_en.json!00_2UZl-K9Gf+cZu5wDj4hXJA",
+            ExportSentinels: "ExportSentinels_en.json!00_oBXv7lX3Gw7eBj9sf8novA",
+            ExportSortieRewards: "ExportSortieRewards_en.json!00_wQNtjzSIDEkexVj1G5MCrg",
+            ExportUpgrades: "ExportUpgrades_en.json!00_0jCWxVTGqJS2owYE5SjxGA",
+            ExportWarframes: "ExportWarframes_en.json!00_Szvhmy1cNuSLraeNtRDxTw",
+            ExportWeapons: "ExportWeapons_en.json!00_kdmL-uitDXvU+1NpxI2TLQ"
         }
     }
 };
@@ -80,7 +80,7 @@ function appDataParser() {
 
         Object.keys(target.table).forEach((lang) => {
             Object.keys(target.table[lang]).forEach((tableName) => {
-                var url = 'http://origin.warframe.com/origin/5E69C1D0/PublicExport/Manifest/' + target.table[lang][tableName];
+                var url = 'http://origin.warframe.com/origin/612EE6D4/PublicExport/Manifest/' + target.table[lang][tableName];
 
                 function pr() {
                     return new Promise(res => {

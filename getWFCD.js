@@ -1,6 +1,6 @@
-const https = require('https');
-const path = require('path');
-const fs = require('fs');
+import path from 'path'
+import fetch from 'node-fetch';
+import fs from 'fs'
 
 var totalData = {}
 var WFCDdata = {
@@ -20,26 +20,19 @@ var WFCDdata = {
 function getHTML(url) {
   console.log('run - getHTML')
   return new Promise((resolve, rej) => {
-    https.get(url, (res) => {
-      res.setEncoding('utf8')
-      var str = ''
-      res.on('data', (d) => {
-        str += d
-      });
-      res.on('end', () => {
-        resolve(str)
+    fetch(url)
+      .then(res => res.text())
+      .then(html => {
+        resolve(html)
       })
-
-    }).on('error', (e) => {
-      rej(e);
-    });
+      .catch(err => {
+        rej(err)
+      })
   })
 }
 
-
-var promiseAll = []
-
 function getWFCD() {
+  var promiseAll = []
   console.log('run - getWFCD')
   Object.keys(WFCDdata).forEach(type => {
     WFCDdata[type].forEach(url => {
@@ -87,22 +80,29 @@ function getWFCD() {
       promiseAll.push(promiseEle())
     })
   })
+  return promiseAll
 }
-getWFCD()
+
 
 function WFCDpromise() {
   console.log('run - WFCDpromise')
-  return new Promise(res => {
-    Promise.all(promiseAll).then(e => {
-      e.forEach(e => {
-        Object.assign(totalData, e)
+  return new Promise((res, rej) => {
+    Promise.all(getWFCD())
+      .then(e => {
+        e.forEach(e => {
+          Object.assign(totalData, e)
+        })
+        res(totalData)
       })
-      res(totalData)
-    })
+      .catch(err => {
+        rej(err)
+      })
+      .finally(() => {
+        console.log('done - WFCDpromise')
+      })
 
   })
 }
-
 
 var getData = new Promise((res, rej) => {
   fs.readFile(path.resolve() + '\\export\\totalData.json', (err, fd) => {
@@ -117,11 +117,15 @@ var getData = new Promise((res, rej) => {
 
 
 
-Promise.all([WFCDpromise(), getData]).then(e => {
-  var _obj = {}
-  Object.assign(_obj, e[0], e[1])
-  fs.writeFile('export/totalData.json', JSON.stringify(_obj), 'utf8', () => {
-    console.log(path.resolve() + '\\export\\totalData.json');
-    console.log('done.');
-  });
-})
+Promise.all([WFCDpromise(), getData])
+  .then(e => {
+    var _obj = {}
+    Object.assign(_obj, e[0], e[1])
+    fs.writeFile('export/totalData.json', JSON.stringify(_obj), 'utf8', () => {
+      console.log(path.resolve() + '\\export\\totalData.json');
+      console.log('done.');
+    });
+  })
+  .catch(err => {
+    throw err
+  })
