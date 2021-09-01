@@ -9,7 +9,7 @@ function getData() {
             var data = JSON.parse(response.target.response);
             var obj = {};
             Object.keys(data).forEach(e => {
-                obj[e.toUpperCase()] = data[e];
+                obj[e.trim().replace(/\s/g, " ").toUpperCase()] = data[e];
             });
             res(obj);
         });
@@ -21,16 +21,14 @@ getData().then(e => {
 
 async function wikiTrans() {
     var data = WARFRAME_KO_DATA || await getData()
-    document.querySelectorAll('h1, span, p, dt, a, figcaption, font').forEach(ele => {
+    console.log(data)
+    document.querySelectorAll('h1, span, p, dt, a, figcaption, font').forEach((ele, idx) => {
         if (ele.childElementCount === 0) {
-
-            if (data[ele.textContent.trim().toUpperCase()]) {
-                var en = ele.textContent.trim().replace(/\s/g, " ")
-                var kr = data[ele.textContent.trim().replace(/\s/g, " ").toUpperCase()]
-                ele.textContent = ele.textContent.replace(en, kr)
+            var kr = data[ele.textContent.trim().replace(/\s/g, " ").toUpperCase()]
+            if (kr) {
+                ele.textContent = kr
             }
         }
-
     })
 }
 
