@@ -1,9 +1,9 @@
-const http = require('http');
-const path = require('path');
-const fs = require('fs');
+import fetch from "node-fetch"
+import path from "path"
+import fs from "fs"
 
 var target = {
-    hash: "5F471274",
+    hash: "612EE6D4",
     lang: "ko",
     table: {
         ko: {
@@ -46,20 +46,15 @@ var target = {
 
 var getData = function (url) {
     return new Promise((resolve, rej) => {
-        var streamData = '';
-        http.get(url, (res) => {
-            res.setEncoding('utf8')
-            res.on('data', data => {
-                streamData += data;
-            });
-            res.on('end', () => {
-                var nowData = JSON.parse(streamData.replace(/(\\r|\r|\\n|\n){1,}/g, "\\n"));
-                resolve(nowData);
-            });
-            res.on('error', err => {
-                rej(err);
-            });
-        });
+        fetch(url)
+            .then(res => res.text())
+            .then(txt => {
+                var nowData = JSON.parse(txt.replace(/(\\r|\r|\\n|\n){1,}/g, "\\n"));
+                resolve(nowData)
+            })
+            .catch(err => {
+                rej(err)
+            })
     });
 };
 
@@ -80,7 +75,7 @@ function appDataParser() {
 
         Object.keys(target.table).forEach((lang) => {
             Object.keys(target.table[lang]).forEach((tableName) => {
-                var url = 'http://origin.warframe.com/origin/612EE6D4/PublicExport/Manifest/' + target.table[lang][tableName];
+                var url = 'http://origin.warframe.com/origin/' + target.hash + '/PublicExport/Manifest/' + target.table[lang][tableName];
 
                 function pr() {
                     return new Promise(res => {
