@@ -21,7 +21,6 @@ getData().then(e => {
 
 async function wikiTrans() {
     var data = WARFRAME_KO_DATA || await getData()
-    console.log(data)
     document.querySelectorAll('h1, span, p, dt, a, figcaption, font').forEach((ele, idx) => {
         if (ele.childElementCount === 0) {
             var kr = data[ele.textContent.trim().replace(/\s/g, " ").toUpperCase()]
@@ -46,7 +45,7 @@ async function searchKor(searchKo) {
     }
 }
 async function getInputEng(txt) {
-    var searchInputHtml = document.querySelector('input[name=query]')
+    var searchInputHtml = document.querySelector('[class*=SearchInput-module_input]')
     if (searchInputHtml) {
         var c = await searchKor(txt.trim())
         return c
@@ -54,91 +53,63 @@ async function getInputEng(txt) {
 }
 
 
+
 async function searchChanger() {
     var data = WARFRAME_KO_DATA || await getData()
+    var IS_SEARCH_POPUP_OPENED = document.querySelector('[class*=SearchInput-module_input]') !== null
 
-    //한글검색 체크박스
-    checkbox = document.querySelector('#koSearchCheck');
-    if (!checkbox) {
-        var _cookie = document.cookie.split(";").map(e => { return e.split('=') }).filter(e => e[0].trim() == "koCheck")
-        var _label = document.createElement('label')
-        var _check = document.createElement('input')
-        _label.style.marginRight = "10px"
-        _check.type = "checkbox"
-        _check.id = "koSearchCheck"
+    if (IS_SEARCH_POPUP_OPENED) {
+        var searchInputHtml = document.querySelector('[class*=SearchInput-module_input]')
+        var dataList = document.createElement('datalist')
+        dataList.id = "koLang"
 
-        if (_cookie.length && _cookie[0]?.[1] == "true") {
-            _check.setAttribute('checked', "")
-        }
-        _label.textContent = "한글검색";
-        _label.prepend(_check)
-        document.querySelector('.wds-global-navigation__search')?.prepend(_label)
-        _check.addEventListener('click', (evt) => {
-            var _checkBox = evt.target;
-            var checked = evt.target.checked
-            document.cookie = "koCheck=" + (evt.target.checked ? "true" : "false")
-
-            if (checked) {
-                document.querySelector('.wds-global-navigation__search-input').setAttribute('list', 'koLang')
-                document.querySelector('.wds-global-navigation__search-input').placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
-            }
-            if (!checked) {
-                document.querySelector('.wds-global-navigation__search-input').removeAttribute('list')
-                document.querySelector('.wds-global-navigation__search-input').placeholder = "한글검색 체크 시 한글검색 가능"
+        Object.values(data).forEach((ko, koIdx) => {
+            if (ko.length <= 15) {
+                var opt = document.createElement('option')
+                opt.value = ko
+                dataList.append(opt)
             }
         })
-    }
+        document.body.append(dataList)
+        if (searchInputHtml) {
 
-
-
-
-
-    var searchInputHtml = document.querySelector('input[name=query]')
-
-
-    var dataList = document.createElement('datalist')
-    dataList.id = "koLang"
-
-    Object.values(data).forEach((ko, koIdx) => {
-        if (ko.length <= 15) {
-            var opt = document.createElement('option')
-            opt.value = ko
-            dataList.append(opt)
-        }
-    })
-    document.body.append(dataList)
-    if (searchInputHtml) {
-
-        if (document.querySelector('#koSearchCheck')?.checked) {
             searchInputHtml.setAttribute('list', "koLang")
-            searchInputHtml.placeholder = "한글 입력 후 Enter 입력 시 영문 전환"
-        }
-        var _txt = ''
-        searchInputHtml.addEventListener('change', e => {
-            checkbox = document.querySelector('#koSearchCheck');
-            if (checkbox.checked) {
+            searchInputHtml.placeholder = "한글 입력 후 자동완성 선택 시 공식영어로 자동 전환됩니다."
+
+            var _txt = ''
+            searchInputHtml.addEventListener('change', e => {
                 getInputEng(searchInputHtml.value).then(e => {
                     if (e) {
                         var _q = e.toLowerCase().replace(/\b(.)/g, (e => {
                             return e.toUpperCase()
                         }))
                         searchInputHtml.value = _q;
-                        window.location = 'https://warframe.fandom.com/wiki/Special:Search?query=' + _q;
+
                     };
                 }).catch('검색 값이 없음')
-            }
-        })
+            })
+        }
     }
 }
 
 
+var POPUP_FUNCTION_FLAG = false
+var ob = new MutationObserver(evts => {
 
-
-var addEventWhenRdy = setInterval(() => {
-    if (document.readyState === "interactive" || document.readyState === "complete") {
-        console.log('워프레임 위키 한국어 전환 완료')
-        wikiTrans()
-        searchChanger()
-        clearInterval(addEventWhenRdy)
+    var el = document.querySelector('[class*=SearchInput-module_input]')
+    if (el === null) {
+        POPUP_FUNCTION_FLAG = true
     }
-}, 10);
+
+    if (el && POPUP_FUNCTION_FLAG) {
+        searchChanger()
+        POPUP_FUNCTION_FLAG = false
+    }
+})
+
+var transOb = new MutationObserver(evts => {
+    wikiTrans()
+})
+
+ob.observe(document.querySelector('body'), { childList: true, subtree: true })
+transOb.observe(document.querySelector('body'), { subtree: true, childList: true })
