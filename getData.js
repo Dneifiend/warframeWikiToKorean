@@ -3,42 +3,42 @@ import path from "path"
 import fs from "fs"
 
 var target = {
-    hash: "612EE6D4",
+    hash: "614D34A4",
     lang: "ko",
     table: {
         ko: {
-            ExportCustoms: "ExportCustoms_ko.json!00_mvvC8CJx5MyTHm1veKVwog",
+            ExportCustoms: "ExportCustoms_ko.json!00_3wCI0EK+2AxXaZtEnMuD+g",
             ExportDrones: "ExportDrones_ko.json!00_lod6Op8+PlDxW-NtrdPWqA",
-            ExportFlavour: "ExportFlavour_ko.json!00_hrWFac1msXgPUXncbd1ylQ",
+            ExportFlavour: "ExportFlavour_ko.json!00_4s5ROdbUyivrs-9cxdlh+A",
             ExportFusionBundles: "ExportFusionBundles_ko.json!00_iIi5Jr7nvTJiQoi-TzcdQw",
             ExportGear: "ExportGear_ko.json!00_FcKSnQ053WjrR4tadmHFIw",
             ExportKeys: "ExportKeys_ko.json!00_rbklrDf92rbQRPYr-ikgsw",
-            ExportRecipes: "ExportRecipes_ko.json!00_8ys2mt1cRPTRtkqDfZUINQ",
+            ExportRecipes: "ExportRecipes_ko.json!00_oeOzLsBJxsMX+gGZH2GZnw",
             ExportRegions: "ExportRegions_ko.json!00_dhP3gNKS7gYu34E-yeI6LA",
-            ExportRelicArcane: "ExportRelicArcane_ko.json!00_MFuvsXAwZq4BXu32F1KwZw",
-            ExportResources: "ExportResources_ko.json!00_l9fEz83052ZUFdKBn3SF+g",
+            ExportRelicArcane: "ExportRelicArcane_ko.json!00_jwS771XrOUci7MexFzE9eg",
+            ExportResources: "ExportResources_ko.json!00_kz9eCef6kd6bRUEnnsw3FA",
             ExportSentinels: "ExportSentinels_ko.json!00_lHL60vueEMXf16GllpN6gA",
-            ExportSortieRewards: "ExportSortieRewards_ko.json!00_ek-jiEc9Y7UzSMfn8Le7xA",
-            ExportUpgrades: "ExportUpgrades_ko.json!00_lcz9oHA8+mLBhwGP3Pj9bw",
-            ExportWarframes: "ExportWarframes_ko.json!00_A4US8Y8W6ygzlbxqBCwDgg",
-            ExportWeapons: "ExportWeapons_ko.json!00_UlDhqGJLWQro3fLmjFrx0A"
+            ExportSortieRewards: "ExportSortieRewards_ko.json!00_76HEZeujCrQwn4pTc4QP7w",
+            ExportUpgrades: "ExportUpgrades_ko.json!00_EyeLXoJnuT4NX4AxDIoo7A",
+            ExportWarframes: "ExportWarframes_ko.json!00_Jd0dsRyIexRwbfBolOei8g",
+            ExportWeapons: "ExportWeapons_ko.json!00_H5hLcdl+bX3-Q70KdqyN6A"
         },
         en: {
-            ExportCustoms: "ExportCustoms_en.json!00_qT1-bMg9GUG6GHHdTOAmkw",
+            ExportCustoms: "ExportCustoms_en.json!00_uxbrm+cu3HU-I5yyC7wXSw",
             ExportDrones: "ExportDrones_en.json!00_g0Sft3UN7r-XufewwdLJGA",
-            ExportFlavour: "ExportFlavour_en.json!00_IBGFa+-YMAeScbKPxirjTw",
+            ExportFlavour: "ExportFlavour_en.json!00_aRC+e1TNvq8fLheWYtv1sg",
             ExportFusionBundles: "ExportFusionBundles_en.json!00_BVjM2wq12FQQ1a6LNy5Ttw",
             ExportGear: "ExportGear_en.json!00_0CeCkcDGL6d-JwKbcwaO7A",
             ExportKeys: "ExportKeys_en.json!00_l-TVxYt7zmO4-y8Gimncog",
-            ExportRecipes: "ExportRecipes_en.json!00_8ys2mt1cRPTRtkqDfZUINQ",
+            ExportRecipes: "ExportRecipes_en.json!00_oeOzLsBJxsMX+gGZH2GZnw",
             ExportRegions: "ExportRegions_en.json!00_hEp9rPFtWjJQardK81J90w",
-            ExportRelicArcane: "ExportRelicArcane_en.json!00_1x2zbbAGQoBu2SKR5YmV9w",
-            ExportResources: "ExportResources_en.json!00_2UZl-K9Gf+cZu5wDj4hXJA",
+            ExportRelicArcane: "ExportRelicArcane_en.json!00_tB5o0CaJFzlCtdi7x5uCvQ",
+            ExportResources: "ExportResources_en.json!00_r6sxOcPW+aatiqSz8p3DZg",
             ExportSentinels: "ExportSentinels_en.json!00_oBXv7lX3Gw7eBj9sf8novA",
-            ExportSortieRewards: "ExportSortieRewards_en.json!00_wQNtjzSIDEkexVj1G5MCrg",
-            ExportUpgrades: "ExportUpgrades_en.json!00_0jCWxVTGqJS2owYE5SjxGA",
-            ExportWarframes: "ExportWarframes_en.json!00_Szvhmy1cNuSLraeNtRDxTw",
-            ExportWeapons: "ExportWeapons_en.json!00_kdmL-uitDXvU+1NpxI2TLQ"
+            ExportSortieRewards: "ExportSortieRewards_en.json!00_2ytGnc+Ln86yMY4wToOa1g",
+            ExportUpgrades: "ExportUpgrades_en.json!00_PajqZVOfUaoM7AbK43jy6g",
+            ExportWarframes: "ExportWarframes_en.json!00_Jv3TnL+KUnJe+MNk6GWkLw",
+            ExportWeapons: "ExportWeapons_en.json!00_tagcu2QCDQKzaUYnUzSs6g"
         }
     }
 };
