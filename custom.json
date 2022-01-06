@@ -1,5 +1,6 @@
 {
   "The Howl of Kubrow": "쿠브로의 울음소리",
+  "Empyrean": "엠피리언",
   "Exterminate": "섬멸",
   "Mercury": "수성",
   "Venus": "금성",
@@ -20,6 +21,9 @@
   "Earth Proxima": "지구 프록시마",
   "Saturn Proxima": "토성 프록시마",
   "Veil Proxima": "베일 프록시마",
+  "Venus Proxima": "금성 프록시마",
+  "Neptune Proxima": "해왕성 프록시마",
+  "Pluto Proxima": "명왕성 프록시마",
   "Impact": "충격",
   "Puncture": "관통",
   "Slash": "베기",
