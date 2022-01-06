@@ -64,7 +64,7 @@ async function searchChanger() {
         dataList.id = "koLang"
 
         Object.values(data).forEach((ko, koIdx) => {
-            if (ko.length <= 15) {
+            if (ko.length <= 30) {
                 var opt = document.createElement('option')
                 opt.value = ko
                 dataList.append(opt)
