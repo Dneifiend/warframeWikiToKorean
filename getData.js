@@ -3,25 +3,25 @@ import path from "path"
 import fs from "fs"
 
 var target = {
-    hash: "61BBE368",
+    hash: "6265FAC4",
     lang: "ko",
     table: {
         ko: {
-            ExportCustoms: "ExportCustoms_ko.json!00_fVZJlUtAN6ELNj4FaIEi9A",
-            ExportDrones: "ExportDrones_ko.json!00_Vw0rBJu+yCK5vLQH9OJXeA",
-            ExportFlavour: "ExportFlavour_ko.json!00_BJ2ZA8ISQddObC7NFnetiQ",
-            ExportFusionBundles: "ExportFusionBundles_ko.json!00_yqMqeIUzN5nsGrhcyh69BA",
-            ExportGear: "ExportGear_ko.json!00_FcKSnQ053WjrR4tadmHFIw",
-            ExportKeys: "ExportKeys_ko.json!00_t9Cl-BEPh3-tMSl3B3Mn4Q",
-            ExportRecipes: "ExportRecipes_ko.json!00_X3NeVr+Bev+omYZhoiFiJQ",
-            ExportRegions: "ExportRegions_ko.json!00_dhP3gNKS7gYu34E-yeI6LA",
-            ExportRelicArcane: "ExportRelicArcane_ko.json!00_zHOj87tX2P66E7duwDMs8g",
-            ExportResources: "ExportResources_ko.json!00_OAMQIyL57iqWX8eMFLCKgw",
-            ExportSentinels: "ExportSentinels_ko.json!00_lHL60vueEMXf16GllpN6gA",
-            ExportSortieRewards: "ExportSortieRewards_ko.json!00_XtcW8MjTfBcYOHDFI-m69Q",
-            ExportUpgrades: "ExportUpgrades_ko.json!00_rvsjSULZd0LksEaqSpafvA",
-            ExportWarframes: "ExportWarframes_ko.json!00_Soz1c4yp3JKoBeNooyHC1A",
-            ExportWeapons: "ExportWeapons_ko.json!00_eVayVgyVMaN7hABo8M-uXg"
+            ExportCustoms:"ExportCustoms_ko.json!00_jI06wkriKVy--dBgVjVu9w",
+            ExportDrones:"ExportDrones_ko.json!00_AkzppEtrX0+PDxEM5+QkyA",
+            ExportFlavour:"ExportFlavour_ko.json!00_ZrSVp1aNA-rcag6QmZugGQ",
+            ExportFusionBundles:"ExportFusionBundles_ko.json!00_yqMqeIUzN5nsGrhcyh69BA",
+            ExportGear:"ExportGear_ko.json!00_TvOKlnBkxtPYvdHmRJFuIw",
+            ExportKeys:"ExportKeys_ko.json!00_t9Cl-BEPh3-tMSl3B3Mn4Q",
+            ExportRecipes:"ExportRecipes_ko.json!00_-qFkC0fOMqlEepYDHUsVUw",
+            ExportRegions:"ExportRegions_ko.json!00_dhP3gNKS7gYu34E-yeI6LA",
+            ExportRelicArcane:"ExportRelicArcane_ko.json!00_H0p3qO9ISpp0uD6HK0FYag",
+            ExportResources:"ExportResources_ko.json!00_jt2Y6UsqIXcHnIZH0KuUVQ",
+            ExportSentinels:"ExportSentinels_ko.json!00_lHL60vueEMXf16GllpN6gA",
+            ExportSortieRewards:"ExportSortieRewards_ko.json!00_-CplS-JdT66-vMicF6SQ6Q",
+            ExportUpgrades:"ExportUpgrades_ko.json!00_grkj72AKMBno42ma3LfCSA",
+            ExportWarframes:"ExportWarframes_ko.json!00_7Ye8KYoKTKCysDMBrP4PGA",
+            ExportWeapons:"ExportWeapons_ko.json!00_AxLdnmcUGiG0H3deMALq8g"
         },
         en: {
             ExportCustoms: "ExportCustoms_en.json!00_mM4rDgLVB4Pel6aq5Vrqjw",
@@ -68,6 +68,9 @@ fs.mkdir(path.resolve() + '/export', {
 
 var lastData = {};
 var promiseArr = [];
+
+
+
 
 function appDataParser() {
     var progress = 0;

@@ -5,7 +5,7 @@
 
 
 ## 실행순서
-1. node getData.js
+1. node getAppData.js
 2. node getWFCD.js
 3. node search.js
 
