@@ -5,32 +5,34 @@ import fs from "fs"
 // adb -s emulator-5554 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
 
 const appDatas = [
-"ExportAbilitiesLibrary_",
-"ExportCustoms_",
-"ExportDrones_",
-"ExportFlavour_",
-"ExportGear_",
-"ExportKeys_",
-"ExportOthers_",
-"ExportRegionNodes_",
-"ExportRelicArcane_",
-"ExportResources_",
-"ExportSentinels_",
-"ExportUpgrades_",
-"ExportWarframes_",
-"ExportWeapons_"
+    "ExportAbilitiesLibrary_",
+    "ExportCustoms_",
+    "ExportDrones_",
+    "ExportFlavour_",
+    "ExportGear_",
+    "ExportKeys_",
+    "ExportOthers_",
+    "ExportRegionNodes_",
+    "ExportRelicArcane_",
+    "ExportResources_",
+    "ExportSentinels_",
+    "ExportUpgrades_",
+    "ExportWarframes_",
+    "ExportWeapons_"
 ]
 
 
-function getData (filename) {
+function getData(filename) {
     return new Promise((resolve, rej) => {
-
-        return fs.readFile(filename, (err, data)=>{
+        return fs.readFile(filename, (err, data) => {
+            if (err) {
+                throw err
+            }
             resolve(JSON.parse(data))
         })
     })
 }
-        
+
 
 
 
@@ -40,48 +42,46 @@ fs.mkdir(path.resolve() + '/export', {
     if (err) throw err;
 });
 
-var promiseArr = [];
+var promiseArr = []
+var lastData = {}
 
-
-
-let resData = appDatas.reduce(async (lastData,filename )=> {
+for (let i = 0; i < appDatas.length; i++) {
+    let filename = appDatas[i]
     let ko = await getData(path.resolve() + '/appdata/' + filename + 'ko.txt')
     let en = await getData(path.resolve() + '/appdata/' + filename + 'en.txt')
-
     for (let key in ko) {
+
         try {
 
             let uniqueName, koString, enString
             uniqueName = ko[key]?.uniqueName ?? ko[key]?.abilityUniqueName
             koString = ko[key]?.name ?? ko[key].abilityName
             enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
-            if (koString.length < 1 || enString.length < 1) {
-                continue;
+
+            if (uniqueName.length || koString.length || enString.length) {
+
+                if (!lastData[uniqueName]) {
+                    lastData[uniqueName] = {};
+                }
+                lastData[uniqueName].koName = koString
+                lastData[uniqueName].enName = enString
             }
-            
-            
-            if (!lastData[uniqueName]) {
-                lastData[uniqueName] = {};
+
+            if (uniqueName === "/Lotus/Powersuits/Yareli/Yareli") {
+                // debugger
+                // console.log({uniqueName, koString, enString})
             }
-            lastData[uniqueName].koName = koString
-            lastData[uniqueName].enName = enString
 
         }
         catch (err) {
             var koString = ko[key]?.name ?? ko[key].abilityName
             console.log('---------------------')
-            console.log(filename, "---",key, "---", koString)
-
-
+            console.log(filename, "---", key, "---", koString)
         }
     }
-    return lastData
-}, {})
+}
 
-resData.then(data => {
 
-    console.log('All data Parse and Output Done.');
-    fs.writeFile('export/totalData.json', JSON.stringify(data), 'utf8', () => { });
-})
-// Promise.all(promiseArr).then((e) => {
-// });
+
+fs.writeFile('export/totalData.json', JSON.stringify(lastData), 'utf8', () => { });
+console.log('All data Parse and Output Done.');
