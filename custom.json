@@ -75,6 +75,9 @@
   "Pursuit":"추적(아크윙)",
   "Junction": "교차점",
   "Sanctuary Onslaught": "맹공",
-  "Skirmish": "접전"
-
+  "Skirmish": "접전",
+  "Void Armageddon": "보이드 대격전",
+  "Void Cascade": "보이드 범람",
+  "Void Flood": "보이드 홍수",
+  "Volatile": "격변"
 }
