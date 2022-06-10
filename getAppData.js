@@ -4,6 +4,9 @@ import fs from "fs"
 
 // adb -s emulator-5554 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
 
+// adb connect 127.0.0.1:62001
+// adb -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
+
 const appDatas = [
     "ExportAbilitiesLibrary_",
     "ExportCustoms_",
@@ -47,8 +50,8 @@ var lastData = {}
 
 for (let i = 0; i < appDatas.length; i++) {
     let filename = appDatas[i]
-    let ko = await getData(path.resolve() + '/appdata/' + filename + 'ko.txt')
-    let en = await getData(path.resolve() + '/appdata/' + filename + 'en.txt')
+    let ko = await getData(path.resolve() + '/app_appdata/' + filename + 'ko.txt')
+    let en = await getData(path.resolve() + '/app_appdata/' + filename + 'en.txt')
     for (let key in ko) {
 
         try {
