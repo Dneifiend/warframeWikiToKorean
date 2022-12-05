@@ -1,0 +1,40 @@
+{
+    "hash": "638D9498",
+    "lang": "ko",
+    "table": {
+        "ko": {
+            "Customs": "ExportCustoms_ko.json!00_p8jbhEMVBmiNAeOlM4MmNA",
+            "Drones": "ExportDrones_ko.json!00_AkzppEtrX0+PDxEM5+QkyA",
+            "Flavour": "ExportFlavour_ko.json!00_EDZZ6zMsoYj8bubL6nfOJw",
+            "FusionBundles": "ExportFusionBundles_ko.json!00_yqMqeIUzN5nsGrhcyh69BA",
+            "Gear": "ExportGear_ko.json!00_UBM+shZXQlovS6lNztDz-w",
+            "Keys": "ExportKeys_ko.json!00_K2PXiZzMUZlmZ8qXBrAahw",
+            "Recipes": "ExportRecipes_ko.json!00_ql8kVps3xHqYRGK6aOhSdg",
+            "Regions": "ExportRegions_ko.json!00_oapfhgzLfzi5n3KLzMztUg",
+            "RelicArcane": "ExportRelicArcane_ko.json!00_MfeZoA1vQmtFxRW1LxcjFA",
+            "Resources": "ExportResources_ko.json!00_cGGoJb1l0jeGSXLy8P-hvQ",
+            "Sentinels": "ExportSentinels_ko.json!00_+kPWSfVeKN7DRhY6Tef97A",
+            "SortieRewards": "ExportSortieRewards_ko.json!00_fpH-4cEkYFi8HHSfj76EPA",
+            "Upgrades": "ExportUpgrades_ko.json!00_EJ-KTYbc07y4SEEDtwW3wA",
+            "Warframes": "ExportWarframes_ko.json!00_vdF7WjMpsrhDu7tw+Awa3w",
+            "Weapons": "ExportWeapons_ko.json!00_WMuukLNpNS6WVseNrZHZsw"
+        },
+        "en": {
+            "Customs": "ExportCustoms_en.json!00_3xrb4jDoWucKFw4q7im+Zw",
+            "Drones": "ExportDrones_en.json!00_LZKVJWzyNlEXy-hI3mpGnA",
+            "Flavour": "ExportFlavour_en.json!00_tBzaY6Yf9dQ0XeMP2FQnow",
+            "FusionBundles": "ExportFusionBundles_en.json!00_mievusFTvE1yg4jxseyL9w",
+            "Gear": "ExportGear_en.json!00_4dR4N93qX0d8hVBF3cFTGQ",
+            "Keys": "ExportKeys_en.json!00_ejrRZxo69KE2kJ5H9RtfAA",
+            "Recipes": "ExportRecipes_en.json!00_ql8kVps3xHqYRGK6aOhSdg",
+            "Regions": "ExportRegions_en.json!00_InKEBxQ9SxTDZ8mQK8V-Bg",
+            "RelicArcane": "ExportRelicArcane_en.json!00_PZxOu1dR7YFFuHgEvJf6LA",
+            "Resources": "ExportResources_en.json!00_gUFkmXGaMVqdaXNLhXdo0Q",
+            "Sentinels": "ExportSentinels_en.json!00_c1bHB7q2P9zWy1t0cNhP2g",
+            "SortieRewards": "ExportSortieRewards_en.json!00_1xb4hg1e921BoIofaEtC4w",
+            "Upgrades": "ExportUpgrades_en.json!00_QASzFOEd3QS7iv7qydPFKA",
+            "Warframes": "ExportWarframes_en.json!00_1f4gDnrQpIKcF3EJS+oNlA",
+            "Weapons": "ExportWeapons_en.json!00_QqNGjOxhsDfuH3b4kSaBEA"
+        }
+    }
+}

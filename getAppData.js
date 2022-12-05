@@ -2,10 +2,20 @@ import fetch from "node-fetch"
 import path from "path"
 import fs from "fs"
 
+// 녹스기준 작동함
+// adb -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
+
+
 // adb -s emulator-5554 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
 
-// adb connect 127.0.0.1:62001
-// adb -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
+// su 로 superuser 획득
+// adb -s 127.0.0.1:5556 pull /data/data/com.digitalextremes.warframenexus/app_appdata
+
+// shell안에서
+//$ cp /data/data/com.digitalextremes.warframenexus/app_appdata/* /sdcard/temp/
+
+// 최신 (Android8 이상 adb)에서는 미작동. debuggable = true 가 켜져있어야 함
+// D:\Android\SDK\platform-tools\adb.exe exec-out su -s 127.0.0.1:5556 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
 
 const appDatas = [
     "ExportAbilitiesLibrary_",
