@@ -3,8 +3,8 @@ import path from "path"
 import fs from "fs"
 
 // 녹스기준 작동함
-// adb connect 127.0.0.1:62001
-// adb -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
+// C:\Utility\platform-tools\adb.exe connect 127.0.0.1:62001
+// C:\Utility\platform-tools\adb.exe -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
 
 
 // adb -s emulator-5554 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
