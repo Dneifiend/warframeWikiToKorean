@@ -143,6 +143,15 @@ input#ko-search-input:focus {
         ).mark("b");
         var res = searchResult.items
           .sort((a, b) => {
+            var _a =
+              input.value.replace(/\s+/g, "").length /
+              Object.values(a)[0][0].replace(/\s+|(<b>)|(<\/b>)/g, "").length;
+            var _b =
+              input.value.replace(/\s+/g, "").length /
+              Object.values(b)[0][0].replace(/\s+|(<b>)|(<\/b>)/g, "").length;
+            return _b - _a;
+          })
+          .sort((a, b) => {
             return (
               Object.values(a)[0][0]
                 .replace(/\s+/g, "")
@@ -151,15 +160,6 @@ input#ko-search-input:focus {
                 .replace(/\s+/g, "")
                 .indexOf(input.value.replace(/\s/g, ""))
             );
-          })
-          .sort((a, b) => {
-            var _a =
-              input.value.replace(/\s+/g, "").length /
-              Object.values(a)[0][0].replace(/\s+|(<b>)|(<\/b>)/g, "").length;
-            var _b =
-              input.value.replace(/\s+/g, "").length /
-              Object.values(b)[0][0].replace(/\s+|(<b>)|(<\/b>)/g, "").length;
-            return _b - _a;
           })
           .map((result, resultIdx) => {
             var li = document.createElement("li");
