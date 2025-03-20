@@ -6,7 +6,7 @@
 
 ## 실행순서
 해시/lzma 추출하여 app_appdata 폴더에 넣어둔 후 명령어 실행
-<!-- 1. hookAppData.cjs -->
+<!-- 1. getAppData.js -->
 2. node getAppData.js
 3. node getWFCD.js
 4. node search.js
