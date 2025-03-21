@@ -68,13 +68,14 @@ input#ko-search-input:focus {
   (function () {
     var btn = document.createElement("button");
     btn.classList.add("search-ko-btn");
-    // btn.style.color = "white";
-    // btn.style.backgroundColor = "black";
-    // btn.style.border = "1px solid white";
-    // btn.style.cursor = "pointer";
+    btn.style.cssText = `height: 40px;
+    background-color: #153c56;
+    outline: none;
+    border: none;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));`
     btn.textContent = "검색";
 
-    document.querySelector("#searchform ").prepend(btn)
+    document.querySelector("#right-navigation ").append(btn)
     btn.addEventListener("click", koSearch);
     
   })();

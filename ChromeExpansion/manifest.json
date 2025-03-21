@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "워프레임 위키 한국어",
     "description": "영문 워프레임 위키 내 일부 텍스트들을 공식 한국어로 변경합니다.",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "icons": {
         "128": "ico.png",
         "48": "ico.png",
