@@ -15,8 +15,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://warframe.fandom.com/*",
-                "http://warframe.fandom.com/*"
+                "https://wiki.warframe.com/*",
+                "http://wiki.warframe.com/*"
             ],
             "js": [
                 "warframeWikiTranslateToKorean.js",

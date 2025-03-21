@@ -13,8 +13,10 @@
   var koArr;
 
   var css = `
+
 li.search:hover{
-    background-color: #c0dcff !important;
+    background-color: #99d9ff !important;
+    color: #00006b;
 }
 
 li.search:focus{
@@ -23,23 +25,27 @@ li.search:focus{
 }
 
 li.search {
-    background-color: white;
+    background-color: #506c83;
     list-style: none;
     padding: 0.5rem;
     outline: none;
+    color: #ffffff;
 }
 
 input#ko-search-input:focus {
-    background-color: #f1f8ff;
-    outline: none;
+    background-color: #ffffff;
+    color: #031a4c;
 }
 
 .ko-search-container{
     z-Index: 999;
+    color: black;
     background-color: rgba(0,0,0,0.6);
 }
 .ko-search-container input{
     z-Index: 1000;
+    background-color: #abb2c1;
+    color: #5c5c5c;
 }
 .ko-search-container li{
     z-Index: 1001;
@@ -62,20 +68,19 @@ input#ko-search-input:focus {
   (function () {
     var btn = document.createElement("button");
     btn.classList.add("search-ko-btn");
-    btn.style.color = "white";
-    btn.style.backgroundColor = "black";
-    btn.style.border = "1px solid white";
-    btn.style.cursor = "pointer";
+    // btn.style.color = "white";
+    // btn.style.backgroundColor = "black";
+    // btn.style.border = "1px solid white";
+    // btn.style.cursor = "pointer";
     btn.textContent = "검색";
 
-    document.querySelectorAll(".wiki-tools.wds-button-group").forEach((nav) => {
-      var btnClone = btn.cloneNode(true);
-      btnClone.addEventListener("click", koSearch);
-      nav.prepend(btnClone);
-    });
+    document.querySelector("#searchform ").prepend(btn)
+    btn.addEventListener("click", koSearch);
+    
   })();
 
-  function koSearch() {
+  function koSearch(event) {
+    event.preventDefault();    
     document
       .querySelectorAll(".ko-search-container, .ko-search-container *")
       .forEach((el) => el.remove());
@@ -126,8 +131,8 @@ input#ko-search-input:focus {
         evt.preventDefault();
       } else if (evt.key == "Enter") {
         window.location.href =
-          "https://warframe.fandom.com/wiki/Special:Search?query=" +
-          encodeURI(document.querySelector(".search").dataset.en);
+          "https://wiki.warframe.com/?search=" +
+          encodeURIComponent(document.querySelector(".search").dataset.en);
       } else if (input.value.length < 2) {
         while (pop.childElementCount > 0) {
           pop.childNodes.forEach((node) => node.remove());
@@ -196,14 +201,14 @@ input#ko-search-input:focus {
                 input.focus();
               } else if (evt.key == "Enter") {
                 window.location.href =
-                  "https://warframe.fandom.com/wiki/Special:Search?query=" +
+                  "https://wiki.warframe.com/?search=" +
                   encodeURI(Object.keys(result)[0]);
               }
             });
 
             li.addEventListener("click", (evt) => {
               window.location.href =
-                "https://warframe.fandom.com/wiki/Special:Search?query=" +
+                "https://wiki.warframe.com/?search=" +
                 encodeURI(Object.keys(result)[0]);
             });
 
