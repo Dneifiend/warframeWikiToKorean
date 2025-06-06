@@ -6,10 +6,9 @@
 
 ## 실행순서
 해시/lzma 추출하여 app_appdata 폴더에 넣어둔 후 명령어 실행
-<!-- 1. getAppData.js -->
-2. node getAppData.js
-3. node getWFCD.js
-4. node search.js
+1. node getAppData.js
+2. node getWFCD.js
+3. node search.js
 
 ## 각 파일 역할
 #### getData.js
