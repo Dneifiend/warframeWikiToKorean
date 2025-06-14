@@ -59,6 +59,7 @@ document.getElementsByTagName("head")[0].appendChild(style);
 (function () {
   var btn = document.createElement("button");
   btn.classList.add("search-ko-btn");
+  btn.setAttribute("flag","enable")
   btn.style.cssText = `height: 40px;
 background-color: #153c56;
 outline: none;
@@ -228,7 +229,8 @@ function koSearch(event) {
     if (
       evt.target.id == "ko-search-input" ||
       evt.target.className == "search" ||
-      evt.target.className == "search-ko-btn"
+      evt.target.className == "search-ko-btn" ||
+      evt.target.parentElement.parentElement.className == "search-ko-btn"
     ) {
       return;
     } else {
