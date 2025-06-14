@@ -44,8 +44,6 @@ z-Index: 1001;
 .ko-search-result-container {
 outline: none;
 }
-
-
 `;
 var style = document.createElement("style");
 
@@ -59,12 +57,14 @@ document.getElementsByTagName("head")[0].appendChild(style);
 (function () {
   var btn = document.createElement("button");
   btn.classList.add("search-ko-btn");
-  btn.setAttribute("flag","enable")
+
   btn.style.cssText = `height: 40px;
 background-color: #153c56;
 outline: none;
 border: none;
-filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));`;
+filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5));
+cursor: pointer;
+`;
   btn.textContent = "검색";
 
   document.querySelector("#right-navigation ").append(btn);
@@ -230,7 +230,7 @@ function koSearch(event) {
       evt.target.id == "ko-search-input" ||
       evt.target.className == "search" ||
       evt.target.className == "search-ko-btn" ||
-      evt.target.parentElement.parentElement.className == "search-ko-btn"
+      evt.target?.parentElement?.parentElement?.className == "search-ko-btn"
     ) {
       return;
     } else {
@@ -281,6 +281,8 @@ async function wikiTrans() {
         }
       }
     });
+  
+    document.querySelector("#searchInput").placeholder = "검색 버튼 클릭하여 한국어 검색 ➡️"
 }
 
 async function searchEng(en) {
