@@ -1,1 +1,1 @@
-[{"ItemType":"/Lotus/Types/Recipes/EidolonRecipes/OpenArchwingSummonBlueprint","ItemCount":1},{"ItemType":"/Lotus/Types/StoreItems/Consumables/LisetAirSupportBlueprint","ItemCount":1}]
+[{"ItemType":"/Lotus/Types/StoreItems/Consumables/LisetAirSupportBlueprint","ItemCount":1}]
