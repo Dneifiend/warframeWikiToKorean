@@ -2,22 +2,6 @@ import fetch from "node-fetch"
 import path from "path"
 import fs from "fs"
 
-// 녹스기준 작동함
-// C:\Utility\platform-tools\adb.exe connect 127.0.0.1:62001
-// C:\Utility\platform-tools\adb.exe -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
-
-
-// adb -s emulator-5554 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
-
-// su 로 superuser 획득
-// adb -s 127.0.0.1:5556 pull /data/data/com.digitalextremes.warframenexus/app_appdata
-
-// shell안에서
-//$ cp /data/data/com.digitalextremes.warframenexus/app_appdata/* /sdcard/temp/
-
-// 최신 (Android8 이상 adb)에서는 미작동. debuggable = true 가 켜져있어야 함
-// D:\Android\SDK\platform-tools\adb.exe exec-out su -s 127.0.0.1:5556 pull /data/data/com.digitalextremes.warframenexus/app_appdata 
-
 const appDatas = [
     "ExportAbilitiesLibrary_",
     "ExportCustoms_",
@@ -32,7 +16,9 @@ const appDatas = [
     "ExportSentinels_",
     "ExportUpgrades_",
     "ExportWarframes_",
-    "ExportWeapons_"
+    "ExportWeapons_",
+    "items_",
+    "mods_",
 ]
 
 
@@ -68,9 +54,17 @@ for (let i = 0; i < appDatas.length; i++) {
         try {
 
             let uniqueName, koString, enString
-            uniqueName = ko[key]?.uniqueName ?? ko[key]?.abilityUniqueName
-            koString = ko[key]?.name ?? ko[key].abilityName
-            enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
+            if (Array.isArray(key)){
+                uniqueName = key?.uniqueName ?? key.abilityUniqueName
+                koString = key?.name ?? key.abilityName
+                enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
+            }
+            else {
+                uniqueName = ko[key]?.uniqueName ?? ko[key]?.abilityUniqueName
+                koString = ko[key]?.name ?? ko[key].abilityName
+                enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
+            }
+
 
             if (uniqueName.length || koString.length || enString.length) {
 
@@ -81,16 +75,11 @@ for (let i = 0; i < appDatas.length; i++) {
                 lastData[uniqueName].enName = enString
             }
 
-            if (uniqueName === "/Lotus/Powersuits/Yareli/Yareli") {
-                // debugger
-                // console.log({uniqueName, koString, enString})
-            }
-
         }
         catch (err) {
             var koString = ko[key]?.name ?? ko[key].abilityName
             console.log('---------------------')
-            console.log(filename, "---", key, "---", koString)
+            console.error(filename, "---", key, "---", koString)
         }
     }
 }
