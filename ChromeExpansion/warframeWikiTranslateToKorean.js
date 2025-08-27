@@ -147,16 +147,6 @@ function koSearch(event) {
             Object.values(b)[0][0].replace(/\s+|(<b>)|(<\/b>)/g, "").length;
           return _b - _a;
         })
-        .sort((a, b) => {
-          return (
-            Object.values(a)[0][0]
-              .replace(/\s+/g, "")
-              .indexOf(input.value.replace(/\s+/g, "")) -
-            Object.values(b)[0][0]
-              .replace(/\s+/g, "")
-              .indexOf(input.value.replace(/\s/g, ""))
-          );
-        })
         .map((result, resultIdx) => {
           var li = document.createElement("li");
           li.innerHTML = Object.values(result)[0][0];
@@ -182,8 +172,8 @@ function koSearch(event) {
               input.value = evt.target.nextSibling.dataset.ko;
               evt.target.nextSibling.focus();
             } else if (evt.key == "ArrowUp") {
-              input.value = evt.target.previousSibling.dataset.ko;
-              evt.target.previousSibling.focus();
+              input.value = evt.target?.previousSibling?.dataset?.ko || input.value;
+              evt?.target?.previousSibling?.focus();
             } else if (evt.key == "Backspace") {
               input.value = input.value.slice(0, -1);
               input.focus();
@@ -210,8 +200,9 @@ function koSearch(event) {
       pop.append(...res);
 
       document
-        .querySelector("li.search:first-child")
-        .addEventListener("keydown", (evt) => {
+        ?.querySelector("li.search:first-child")
+        ?.addEventListener("keydown", (evt) => {
+          
           if (evt.key == "ArrowUp") {
             input.focus();
           }
@@ -225,7 +216,7 @@ function koSearch(event) {
   });
 
   document.addEventListener("click", (evt) => {
-    console.log(evt);
+
     if (
       evt.target.id == "ko-search-input" ||
       evt.target.className == "search" ||
@@ -262,7 +253,7 @@ function getData() {
 }
 getData().then((e) => {
   WARFRAME_KO_DATA = e;
-  koArr = Object.keys(WARFRAME_KO_DATA).map((e) => {
+  koArr = Object.keys(WARFRAME_KO_DATA).sort((a,b)=>a.length-b.length).map((e) => {
     var obj = {};
     obj[e] = [WARFRAME_KO_DATA[e], WARFRAME_KO_DATA[e].replace(/\s+/g, "")];
     return obj;
@@ -292,6 +283,7 @@ async function searchEng(en) {
 
 async function searchKor(searchKo) {
   var data = WARFRAME_KO_DATA || (await getData());
+  console.log('ddd', data)
   var i = Object.values(data).indexOf(searchKo);
   var eng = Object.keys(data)[i];
   if (eng) {
