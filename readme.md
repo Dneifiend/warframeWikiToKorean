@@ -9,9 +9,20 @@ C:\Utility\platform-tools\adb.exe connect 127.0.0.1:62001
 C:\Utility\platform-tools\adb.exe -s 127.0.0.1:62001 pull /data/data/com.digitalextremes.warframenexus/app_appdata
 ```
 
+```js
+//r&d 필요
+`https://origin.warframe.com/origin/PublicExport/index_ko.txt.lzma`
+`https://origin.warframe.com/origin/PublicExport/index_en.txt.lzma`
+`https://content.warframe.com/PublicExport/Manifest/ExportCustoms_ko.json!00_iJjU8rqcw10eqUVbV-6I8g`
+bash에서 xz 명령어로 lzma 압축 해제
+```
+
 ## 실행순서
 해시/lzma 추출하여 app_appdata 폴더에 넣어둔 후 명령어 실행
+`dataparser.bat` 혹은 아래를 순서대로 실행
+
 1. apiDownload.bat
+2. node getOfficialData.js
 2. node getAppData.js
 3. node getWFCD.js
 4. node search.js

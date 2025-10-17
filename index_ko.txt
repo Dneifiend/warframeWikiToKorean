@@ -1,0 +1,16 @@
+ExportCustoms_ko.json!00_iJjU8rqcw10eqUVbV-6I8g
+ExportDrones_ko.json!00_MKbtPGsaHPFUlB3aPW4zaQ
+ExportFlavour_ko.json!00_ZGILV7W1aTFOzGdyxiJeJQ
+ExportFusionBundles_ko.json!00_AMVkMhGIM1zMPHkiytrYEw
+ExportGear_ko.json!00_cJ5gjtsjuVW5ZPtDcRSiig
+ExportKeys_ko.json!00_vNGvxfyYb9I0QaA-JmvJdg
+ExportRecipes_ko.json!00_naw87rzaPM9dAVthE-jG0w
+ExportRegions_ko.json!00_mz-0hA17ZJiBuelc02GtZw
+ExportRelicArcane_ko.json!00_+8eDqVK+F0juovaCllPB2w
+ExportResources_ko.json!00_-njFwiBAJK7Y5K0nEC06Cg
+ExportSentinels_ko.json!00_dt+3G4-R-cf2hAOlCde9VA
+ExportSortieRewards_ko.json!00_ndrZB1mQ63JwKmaO+y9DPQ
+ExportUpgrades_ko.json!00_0zb8FOahRV8SfHJgG0zH5A
+ExportWarframes_ko.json!00_brboRAhW+ou2-x7CmAPw-A
+ExportWeapons_ko.json!00_tthwSMTUW10dI7Rv245a2w
+ExportManifest.json!00_TKjqqMkToy4rIkcciR1dzA

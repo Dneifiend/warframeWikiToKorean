@@ -3,14 +3,12 @@ import path from "path"
 import fs from "fs"
 
 const appDatas = [
-    "ExportAbilitiesLibrary_",
     "ExportCustoms_",
     "ExportDrones_",
     "ExportFlavour_",
     "ExportGear_",
     "ExportKeys_",
-    "ExportOthers_",
-    "ExportRegionNodes_",
+    "ExportRegions_",
     "ExportRelicArcane_",
     "ExportResources_",
     "ExportSentinels_",
@@ -20,6 +18,7 @@ const appDatas = [
     "items_",
     "mods_",
 ]
+
 
 
 function getData(filename) {
@@ -54,19 +53,25 @@ for (let i = 0; i < appDatas.length; i++) {
         try {
 
             let uniqueName, koString, enString
-            if (Array.isArray(key)){
-                uniqueName = key?.uniqueName ?? key.abilityUniqueName
-                koString = key?.name ?? key.abilityName
-                enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
+            if(Object.prototype.toString.call(ko[key]) === '[object Array]'){
+
+                var dataArr = Object.values(ko[key])
+                dataArr.forEach((dataObj,dataObjIdx)=> {
+                    uniqueName = dataObj.uniqueName ?? dataObj.abilityUniqueName
+                    koString = dataObj.name ?? dataObj.abilityName
+                    enString = en[key][dataObjIdx]?.name ?? en[key][dataObjIdx]?.abilityName
+    
+                });
             }
-            else {
-                uniqueName = ko[key]?.uniqueName ?? ko[key]?.abilityUniqueName
+            else if(Object.prototype.toString.call(ko[key]) === '[object Object]'){
+                uniqueName = ko[key]?.uniqueName ?? ko[key].abilityUniqueName
                 koString = ko[key]?.name ?? ko[key].abilityName
                 enString = en[key]?.name?.toUpperCase() ?? en[key].abilityName?.toUpperCase()
             }
 
 
-            if (uniqueName.length || koString.length || enString.length) {
+
+            if (uniqueName?.length || koString?.length || enString?.length) {
 
                 if (!lastData[uniqueName]) {
                     lastData[uniqueName] = {};
