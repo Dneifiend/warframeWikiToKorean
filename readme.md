@@ -14,7 +14,8 @@ C:\Utility\platform-tools\adb.exe -s 127.0.0.1:62001 pull /data/data/com.digital
 `https://origin.warframe.com/origin/PublicExport/index_ko.txt.lzma`
 `https://origin.warframe.com/origin/PublicExport/index_en.txt.lzma`
 `https://content.warframe.com/PublicExport/Manifest/ExportCustoms_ko.json!00_iJjU8rqcw10eqUVbV-6I8g`
-bash에서 xz 명령어로 lzma 압축 해제
+
+// bash에서 xz 명령어로 lzma 압축 해제
 ```
 
 ## 실행순서
