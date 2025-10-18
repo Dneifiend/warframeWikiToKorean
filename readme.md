@@ -22,8 +22,7 @@ C:\Utility\platform-tools\adb.exe -s 127.0.0.1:62001 pull /data/data/com.digital
 해시/lzma 추출하여 app_appdata 폴더에 넣어둔 후 명령어 실행
 `dataparser.bat` 혹은 아래를 순서대로 실행
 
-1. apiDownload.bat
-2. node getOfficialData.js
+1. node getOfficialData.js
 2. node getAppData.js
 3. node getWFCD.js
 4. node search.js
