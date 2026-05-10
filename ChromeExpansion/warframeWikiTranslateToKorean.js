@@ -151,6 +151,8 @@ function koSearch(event) {
           var li = document.createElement("li");
           li.innerHTML = Object.values(result)[0][0];
           li.classList.add("search");
+          li.setAttribute("translate", "no")
+          li.classList.add("notranslate")
           li.dataset.ko = Object.values(result)[0][0].replace(
             /(<b>)|(<\/b>)/g,
             ""
