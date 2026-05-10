@@ -269,6 +269,10 @@ async function wikiTrans() {
         var kr = data[ele.textContent.trim().replace(/\s/g, " ").toUpperCase()];
         if (kr) {
           ele.textContent = kr;
+          
+          // 크롬번역기가 앱이 변경한 한국어를 다른 한국어로 번역하는 것을 막는다.
+          ele.setAttribute("translate", "no")
+          ele.classList.add("notranslate")
         }
       }
     });
