@@ -7,10 +7,10 @@ ExportKeys_en.json!00_x1VPdMpOM3cO-Jrdq-hXGg
 ExportRecipes_en.json!00_ftaIks7bCpxZmaQMDvAN7Q
 ExportRegions_en.json!00_457BHCafc9wNaxtGHmvoOw
 ExportRelicArcane_en.json!00_4eaEZQ8tiUZreFQMUuDNAA
-ExportResources_en.json!00_rLeHLtWxo0lv0F0STcoV6Q
+ExportResources_en.json!00_rj70LhG1oC8E8MGC6cvCGw
 ExportSentinels_en.json!00_8iGr2T9MTskXt5zeKEVNmQ
 ExportSortieRewards_en.json!00_Bt+LyatkTjWOKpnU6GPeng
-ExportUpgrades_en.json!00_-bjPV7QkfB8vLf1RhLOFRw
+ExportUpgrades_en.json!00_rf4goWSYW4FjfaMFn3KoLg
 ExportWarframes_en.json!00_gFCc6M4iI-LF11CBMzq4FQ
-ExportWeapons_en.json!00_tQS5yIaf2ZIITxNFosThPw
-ExportManifest.json!00_+B4NOBpBNP0+uJICGNBjVQ
+ExportWeapons_en.json!00_zwapa0tHPowLsyegwAU-zw
+ExportManifest.json!00_DUrPwumJrmBlg+BF7pbMew
