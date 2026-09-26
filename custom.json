@@ -24,12 +24,14 @@
   "Venus Proxima": "금성 프록시마",
   "Neptune Proxima": "해왕성 프록시마",
   "Pluto Proxima": "명왕성 프록시마",
+  "Uranus Proxima": "천왕성 프록시마",
   "Impact": "충격",
   "Puncture": "관통",
   "Slash": "베기",
   "Bleed": "출혈",
   "Cold": "냉기",
   "Electricity": "전기",
+  "Overguard": "오버가드",
   "Heat": "불",
   "Toxin": "독",
   "Blast": "폭발",
@@ -107,5 +109,6 @@
   "The Teacher": "스승",
   "Scaldra": "스칼드라",
   "Techrot": "테크병",
-  "Anarchs": "반란군"
+  "Anarchs": "반란군",
+  "Steel Path": "강철의 길"
 }
