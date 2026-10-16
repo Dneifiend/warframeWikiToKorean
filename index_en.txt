@@ -12,5 +12,5 @@ ExportSentinels_en.json!00_8iGr2T9MTskXt5zeKEVNmQ
 ExportSortieRewards_en.json!00_Bt+LyatkTjWOKpnU6GPeng
 ExportUpgrades_en.json!00_VyAyYCx-vby5YN-tLPimVw
 ExportWarframes_en.json!00_AIDVHigS64IrZQVY2GdWfg
-ExportWeapons_en.json!00_UIbMKRngVjDLJ2q4-U1BZQ
+ExportWeapons_en.json!00_RcEdsq5S+l61BkfnQuzJFw
 ExportManifest.json!00_KL2sUy9lKE2JSNa8hhmzYQ

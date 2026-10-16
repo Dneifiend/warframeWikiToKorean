@@ -12,5 +12,5 @@ ExportSentinels_ko.json!00_dt+3G4-R-cf2hAOlCde9VA
 ExportSortieRewards_ko.json!00_6ifdaBuPM-RXayrwGE8tLw
 ExportUpgrades_ko.json!00_tz9GiSD1r64tsIU1DQHlzQ
 ExportWarframes_ko.json!00_QFVtxgRBSL8gQEdykt4m6A
-ExportWeapons_ko.json!00_1O5nT2cb1QuOWnKe-JM14g
+ExportWeapons_ko.json!00_EbjufCglVfIC1GSoqzqSNg
 ExportManifest.json!00_KL2sUy9lKE2JSNa8hhmzYQ
